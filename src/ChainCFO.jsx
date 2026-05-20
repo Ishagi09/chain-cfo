@@ -97,29 +97,21 @@ export default function ChainCFO() {
         * { box-sizing: border-box; margin: 0; padding: 0; }
         @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
         .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-        .grid2b { display: grid; grid-template-columns: 1.3fr 1fr; gap: 10px; }
-        @media(max-width:600px) {
-          .grid2  { grid-template-columns: 1fr 1fr; }
-          .grid3  { grid-template-columns: 1fr 1fr; }
-          .grid2b { grid-template-columns: 1fr; }
-        }
       `}</style>
 
       <div style={{ padding: "18px 14px" }}>
 
-        {/* HEADER */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18, flexWrap: "wrap", gap: 10 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
             <div style={{ width: 40, height: 40, borderRadius: 11, background: "#1A1408", border: `1px solid ${G.borderGold}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem" }}>₿</div>
             <div>
-              <div style={{ fontSize: "1.4rem", fontWeight: 900, letterSpacing: "-.03em" }}>
+              <div style={{ fontSize: "1.4rem", fontWeight: 900 }}>
                 <span style={{ color: "#fff" }}>Chain</span><GoldNum size="1.4rem">CFO</GoldNum>
               </div>
               <div style={{ fontSize: ".52rem", color: G.muted, letterSpacing: ".14em", textTransform: "uppercase" }}>Autonomous On-Chain Financial OS</div>
             </div>
           </div>
-          <div style={{ display: "flex", gap: 7, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 7 }}>
             <Card style={{ padding: "6px 12px", display: "flex", gap: 6, alignItems: "center" }}>
               <Dot /><span style={{ color: G.green, fontSize: ".62rem", fontFamily: "monospace" }}>Live · ETH</span>
             </Card>
@@ -129,13 +121,12 @@ export default function ChainCFO() {
           </div>
         </div>
 
-        {/* TOP STATS — 2x2 grid */}
         <div className="grid2" style={{ marginBottom: 12 }}>
           {[
-            { l: "Total Inflow (MTD)", v: fmt(total),  s: "+12.3%", gold: true },
-            { l: "Yield Earned",       v: fmt(yld),    s: "8.2% APY · Aave" },
-            { l: "Payroll Streamed",   v: "$20,974",   s: "4 recipients" },
-            { l: "Tax Reserved",       v: "$10,487",   s: "Q2 2026" },
+            { l: "Total Inflow (MTD)", v: fmt(total), s: "+12.3%", gold: true },
+            { l: "Yield Earned",       v: fmt(yld),   s: "8.2% APY · Aave" },
+            { l: "Payroll Streamed",   v: "$20,974",  s: "4 recipients" },
+            { l: "Tax Reserved",       v: "$10,487",  s: "Q2 2026" },
           ].map((s, i) => (
             <Card key={i} gold={!!s.gold}>
               <Lbl c={s.l} />
@@ -145,9 +136,8 @@ export default function ChainCFO() {
           ))}
         </div>
 
-        {/* BALANCE + RUNWAY — full width */}
         <Card gold style={{ marginBottom: 12 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 10 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 10 }}>
             <div>
               <Lbl c="Total Treasury Balance" />
               <GoldNum size="2.2rem">{fmt(104870)}</GoldNum>
@@ -160,12 +150,12 @@ export default function ChainCFO() {
                 <span style={{ fontSize: ".54rem", color: G.muted, fontFamily: "monospace" }}>24M</span>
               </div>
               <div style={{ height: 5, background: "#1A1810", borderRadius: 4, overflow: "hidden" }}>
-                <div style={{ height: "100%", width: "58%", background: "linear-gradient(90deg,#6B4F10,#F5D060)", borderRadius: 4, boxShadow: "0 0 8px rgba(212,175,55,.5)" }} />
+                <div style={{ height: "100%", width: "58%", background: "linear-gradient(90deg,#6B4F10,#F5D060)", borderRadius: 4 }} />
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginTop: 8 }}>
                 <GoldNum size="1.6rem">14</GoldNum>
                 <span style={{ color: G.muted, fontSize: ".65rem" }}>months</span>
-                <span style={{ marginLeft: "auto", color: G.green, fontSize: ".58rem", fontFamily: "monospace" }}>✓ Healthy</span>
+                <span style={{ marginLeft: "auto", color: G.green, fontSize: ".58rem" }}>✓ Healthy</span>
               </div>
             </div>
           </div>
@@ -176,9 +166,7 @@ export default function ChainCFO() {
           </div>
         </Card>
 
-        {/* DONUT + YIELD CHART — 2 col */}
         <div className="grid2" style={{ marginBottom: 12 }}>
-
           <Card>
             <Lbl c="Auto-Split Engine" />
             <ResponsiveContainer width="100%" height={140}>
@@ -205,7 +193,7 @@ export default function ChainCFO() {
           </Card>
 
           <Card>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
               <Lbl c="Yield Vault" />
               <Pill color="#C084FC">8.2% APY</Pill>
             </div>
@@ -236,7 +224,6 @@ export default function ChainCFO() {
           </Card>
         </div>
 
-        {/* TRANSACTIONS — full width */}
         <Card style={{ marginBottom: 12 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
             <Lbl c="Live Transaction Feed" />
@@ -258,7 +245,6 @@ export default function ChainCFO() {
           </div>
         </Card>
 
-        {/* W3.io RECIPE — full width */}
         <Card gold>
           <Lbl c="W3.io Composable Recipe" />
           <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -286,11 +272,10 @@ export default function ChainCFO() {
           </div>
         </Card>
 
-        {/* FOOTER */}
         <div style={{ textAlign: "center", marginTop: 22, color: G.muted, fontSize: ".53rem", fontFamily: "monospace", letterSpacing: ".13em" }}>
           CHAINCFO · VIBE CODED WITH AI · POWERED BY <span style={{ color: G.gold }}>W3.IO</span> · @w3arew3
         </div>
       </div>
     </div>
   );
-}
+              }
